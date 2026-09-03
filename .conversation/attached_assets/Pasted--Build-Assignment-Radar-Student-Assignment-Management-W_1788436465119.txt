@@ -1,0 +1,507 @@
+# Build "Assignment Radar" — Student Assignment Management Website
+
+Create a polished, modern, fully functional student web application called **Assignment Radar**.
+
+## 1. Core Problem
+
+College students often miss assignments because deadlines, instructions, and submission links are scattered across WhatsApp groups, Google Classroom, PDFs, and messages.
+
+**Assignment Radar** solves this by putting all assignments into one simple dashboard and intelligently showing students what needs attention first.
+
+This should feel like a real product, **not a basic to-do list**.
+
+---
+
+# 2. Tech Requirements
+
+Build this as a complete frontend web application that can run locally in VS Code.
+
+Use:
+
+* HTML
+* CSS
+* JavaScript
+
+You may use a lightweight frontend library only if genuinely necessary, but keep the project simple and reliable.
+
+Do NOT require:
+
+* Paid APIs
+* Claude API
+* OpenAI API
+* Authentication services
+* External databases
+* Complex backend setup
+
+Use **localStorage** to save assignments so the data remains after refreshing the page.
+
+The website must work immediately after opening/running the project.
+
+---
+
+# 3. Design Direction
+
+Create a **premium, modern student dashboard**.
+
+Style:
+
+* Clean
+* Spacious
+* Minimal
+* Professional
+* Slightly futuristic
+* Soft rounded cards
+* Subtle shadows
+* Smooth hover animations
+* Excellent typography
+* Responsive design for desktop, tablet and mobile
+
+Use a light background with a modern accent color.
+
+Avoid making it look like a generic Notion clone or basic CRUD dashboard.
+
+The interface should look good enough to demonstrate in a college project competition.
+
+---
+
+# 4. Main Dashboard
+
+Create a dashboard called:
+
+## Assignment Radar
+
+At the top show:
+
+**Good afternoon 👋**
+
+**Here's what your academic workload looks like.**
+
+Display summary cards:
+
+* 🔴 Due Today
+* 🟠 Due Tomorrow
+* 🟡 Due Soon
+* 📝 Total Pending
+* ✅ Completed
+
+Also show:
+
+### Deadline Radar
+
+Display assignments according to their urgency:
+
+🟢 Plenty of time
+🟡 Due soon
+🟠 Due tomorrow
+🔴 Due today
+
+The status should automatically change based on the current date.
+
+---
+
+# 5. Workload Radar ⭐
+
+This is one of the main unique features.
+
+Create a weekly workload visualization.
+
+Example:
+
+MON  ██
+TUE  ████
+WED  ███████
+THU  ██
+FRI  █████
+
+The workload should be calculated from assignments due on each day.
+
+Use estimated effort to make the workload more meaningful.
+
+For example:
+
+* 30 minutes → small workload
+* 1 hour → medium workload
+* 2+ hours → large workload
+
+Clearly highlight overloaded days with:
+
+**⚠️ Heavy workload**
+
+This should help students understand WHICH DAY is going to be stressful instead of simply showing how many assignments they have.
+
+---
+
+# 6. Smart Priority ⭐
+
+Do not rely only on manually selected priority.
+
+Calculate a recommended priority using:
+
+**Deadline + Estimated Effort + Importance**
+
+For example:
+
+Physics Assignment
+Due tomorrow
+Estimated effort: 2 hours
+Importance: High
+
+→ 🔴 HIGH PRIORITY
+
+Math Assignment
+Due in 5 days
+Estimated effort: 1 hour
+
+→ 🟡 MEDIUM PRIORITY
+
+English Assignment
+Due in 10 days
+Estimated effort: 30 minutes
+
+→ 🟢 LOW PRIORITY
+
+Show a small label such as:
+
+**Smart Priority: HIGH**
+
+The calculation does not need to be AI-powered. Use a clear JavaScript scoring system.
+
+---
+
+# 7. Assignment Page
+
+Create an "Assignments" page where every assignment appears as a clean card or table.
+
+Each assignment must support:
+
+* Subject
+* Assignment title
+* Description
+* Teacher
+* Due date
+* Priority
+* Estimated effort
+* Importance
+* Submission link
+* Status
+* Notes
+* Attachment
+
+Status options:
+
+* Not Started
+* In Progress
+* Submitted
+
+Priority options:
+
+* Low
+* Medium
+* High
+
+---
+
+# 8. Add Assignment
+
+Create a prominent:
+
+**+ Add Assignment**
+
+button.
+
+Clicking it should open a clean modal/form.
+
+Fields:
+
+Subject
+Assignment Title
+Description
+Teacher
+Due Date
+Estimated Effort
+Importance
+Priority
+Submission Link
+Status
+Notes
+Attachment
+
+Allow the user to save the assignment.
+
+After saving:
+
+* Update dashboard statistics
+* Update workload radar
+* Update deadline radar
+* Update smart priority
+* Store data in localStorage
+
+---
+
+# 9. Submission Hub ⭐
+
+Create a dedicated section called:
+
+## Submission Hub
+
+This should make submitting assignments extremely easy.
+
+Each assignment can display:
+
+**Physics Assignment**
+
+📅 Due: Sept 5
+⏱ Estimated: 2 hours
+👨‍🏫 Teacher: Mr. Sharma
+
+📎 Instructions
+🔗 Submission Link
+
+[ Open Submission Link ]
+
+[ Mark as Submitted ]
+
+When the user clicks **Mark as Submitted**, update the assignment status to:
+
+✅ Submitted
+
+and remove it from the pending workload.
+
+Do not invent fake links. If the user enters a submission URL, make the button open that URL.
+
+---
+
+# 10. Assignment Details
+
+When an assignment is clicked, open a detailed view/modal showing:
+
+* Subject
+* Title
+* Description
+* Teacher
+* Due date
+* Countdown
+* Smart priority
+* Estimated effort
+* Submission link
+* Notes
+* Attachment
+* Current status
+
+Include:
+
+**Edit**
+
+**Delete**
+
+**Mark as Submitted**
+
+buttons.
+
+---
+
+# 11. Search and Filters
+
+Add a search bar:
+
+**Search assignments...**
+
+Allow searching by:
+
+* Assignment title
+* Subject
+* Teacher
+
+Add filters:
+
+* All
+* Due Today
+* Due Soon
+* High Priority
+* Not Started
+* In Progress
+* Submitted
+
+The filters should work instantly without refreshing the page.
+
+---
+
+# 12. Countdown
+
+For every pending assignment, display something like:
+
+🔴 Due today
+
+🟠 Due tomorrow
+
+🟡 3 days left
+
+🟢 8 days left
+
+Automatically calculate this from the current date.
+
+If an assignment is overdue:
+
+**⚠️ Overdue**
+
+Make overdue assignments visually noticeable.
+
+---
+
+# 13. Navigation
+
+Create a sidebar/navbar containing:
+
+🏠 Dashboard
+📚 Assignments
+🎯 Submission Hub
+📊 Workload Radar
+
+At the bottom:
+
+⚙️ Settings
+
+Settings can contain simple options such as:
+
+* Light/Dark mode
+* Clear all data
+
+---
+
+# 14. Empty States
+
+Do not leave blank screens.
+
+If there are no assignments, show:
+
+📡
+
+**Your radar is clear.**
+
+**No assignments detected. Add your first assignment to start tracking your workload.**
+
+[ + Add Assignment ]
+
+Make the empty state visually attractive.
+
+---
+
+# 15. Demo Data
+
+For the first launch, include a few realistic sample assignments so the dashboard immediately looks alive.
+
+Example subjects:
+
+* Mathematics
+* Physics
+* Programming
+* English
+
+However, clearly allow the user to delete these sample assignments.
+
+Do not recreate the demo assignments every time the page refreshes.
+
+---
+
+# 16. Data Handling
+
+Use localStorage.
+
+Every time an assignment is:
+
+* Added
+* Edited
+* Deleted
+* Marked submitted
+
+the localStorage data must update.
+
+Refreshing the browser must NOT delete assignments.
+
+Handle invalid or missing data safely so the website does not crash.
+
+---
+
+# 17. Reliability Requirements
+
+This is extremely important.
+
+Build the project so that:
+
+* No broken buttons
+* No console errors
+* No dead navigation
+* No fake functionality
+* Forms validate required fields
+* Invalid submission URLs do not crash the app
+* Empty states work
+* Dates work correctly
+* Filters work
+* Search works
+* Edit works
+* Delete works
+* localStorage works
+* Responsive layout works
+* Dark mode works if implemented
+* Page refresh does not lose saved assignments
+
+Before finishing, test every major interaction.
+
+---
+
+# 18. Visual Hierarchy
+
+The most important information should be immediately visible:
+
+1. What is due today?
+2. What should I work on first?
+3. Which days are overloaded?
+4. What assignments are still pending?
+5. Where do I submit them?
+
+The website should answer these questions within a few seconds of opening it.
+
+---
+
+# 19. Competition-Level Touch
+
+Add a small section on the dashboard:
+
+## 🎯 Today's Focus
+
+Automatically select the highest-priority unfinished assignment.
+
+Example:
+
+**Physics — Numerical Problems**
+
+🔴 HIGH PRIORITY
+
+Due tomorrow
+Estimated effort: 2 hours
+
+**Recommended: Start this first.**
+
+[ View Assignment ]
+
+This should make Assignment Radar feel different from a normal assignment tracker.
+
+---
+
+# 20. Final Deliverable
+
+Create the complete project structure and all required files.
+
+Keep the code clean and organized.
+
+Use reusable JavaScript functions.
+
+Add comments only where useful.
+
+Make sure the project can be run locally from VS Code with minimal setup.
+
+Most importantly:
+
+**Prioritize a fully working, bug-free MVP over adding unnecessary features.**
+
+The final website should look like a real product that could be demonstrated to judges in a college project competition.

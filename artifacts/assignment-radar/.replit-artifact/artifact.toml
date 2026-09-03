@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Assignment Radar"
+description = "A calm, smart student assignment dashboard that turns scattered deadlines into one clear plan, with workload radar, smart priority, and a fast submission hub backed by local browser storage."
+version = "1.0.0"
+id = "artifacts/assignment-radar"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24500
+
+[services.development]
+run = "pnpm --filter @workspace/assignment-radar run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/assignment-radar", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/assignment-radar/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24500"
+BASE_PATH = "/"
